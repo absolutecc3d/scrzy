@@ -113,24 +113,21 @@
   <div class="title">SCRZY</div>
 
   <div class="container">
-    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=adopt+me+trading';">MM2</div>
-    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=adopt+me+trading';">ADOPT ME</div>
-    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=blade+ball+trading';">BLADE BALL</div>
-    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=blox+fruits+trading';">BLOX FRUITS</div>
-    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=roblox+crosstrading';">CROSSTRADING</div>
+    <div class="box" onclick="window.location.href='https://auth.immortal.rs/';">IMMORTAL</div>
+    <div class="box" onclick="window.location.href='https://shockify.st/';">SHOCKIFY</div>
+    <div class="box" onclick="window.location.href='https://app.beamers.si/u/SplunkZ';">SPLUNK</div>
+    <div class="box" onclick="window.location.href='https://www.logged.tg/auth/immortalontop';">INJURIES</div>
   </div>
 
   <script>
     const boxes = document.querySelectorAll('.box');
-    const bottomButton = document.querySelector('.bottom-button');
     const title = document.querySelector('.title');
 
     window.addEventListener('mousemove', (e) => {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
-      [...boxes, bottomButton].forEach(el => {
-        const r = el.getBoundingClientRect();
+      boxes      const r = el.getBoundingClientRect();
         const cx = r.left + r.width / 2;
         const cy = r.top + r.height / 2;
         const dx = (mouseX - cx) / 15;
@@ -151,7 +148,7 @@
     });
 
     window.addEventListener('mouseleave', () => {
-      [...boxes, bottomButton].forEach(el => {
+      boxes.forEach(el => {
         el.style.setProperty('--tx','0px');
         el.style.setProperty('--ty','0px');
       });
