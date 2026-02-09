@@ -113,10 +113,11 @@
   <div class="title">SCRZY</div>
 
   <div class="container">
-    <div class="box" onclick="window.location.href='https://auth.immortal.rs/';">IMMORTAL</div>
-    <div class="box" onclick="window.location.href='https://shockify.st/';">SHOCKIFY</div>
-    <div class="box" onclick="window.location.href='https://app.beamers.si/u/SplunkZ';">SPLUNK</div>
-    <div class="box" onclick="window.location.href='https://www.logged.tg/auth/immortalontop';">INJURIES</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=adopt+me+trading';">MM2</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=adopt+me+trading';">ADOPT ME</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=blade+ball+trading';">BLADE BALL</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=blox+fruits+trading';">BLOX FRUITS</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=roblox+crosstrading';">CROSSTRADING</div>
   </div>
 
   <script>
@@ -127,7 +128,8 @@
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
-      boxes      const r = el.getBoundingClientRect();
+      boxes.forEach(el => {
+        const r = el.getBoundingClientRect();
         const cx = r.left + r.width / 2;
         const cy = r.top + r.height / 2;
         const dx = (mouseX - cx) / 15;
