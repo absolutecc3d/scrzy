@@ -120,14 +120,13 @@
 
   <script>
     const boxes = document.querySelectorAll('.box');
-    const bottomButton = document.querySelector('.bottom-button');
     const title = document.querySelector('.title');
 
     window.addEventListener('mousemove', (e) => {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
-      [...boxes, bottomButton].forEach(el => {
+      boxes.forEach(el => {
         const r = el.getBoundingClientRect();
         const cx = r.left + r.width / 2;
         const cy = r.top + r.height / 2;
@@ -149,7 +148,7 @@
     });
 
     window.addEventListener('mouseleave', () => {
-      [...boxes, bottomButton].forEach(el => {
+      boxes.forEach(el => {
         el.style.setProperty('--tx','0px');
         el.style.setProperty('--ty','0px');
       });
