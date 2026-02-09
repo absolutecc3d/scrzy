@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCRZY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Jersey 15', sans-serif;
+      background-color: #140b2e;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-transform: uppercase;
+      overflow: hidden;
+    }
+
+    .title {
+      color: #b58cff;
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 1px;
+      transform: translate(var(--ttx, 0px), var(--tty, 0px));
+      transition: transform 0.15s ease;
+      will-change: transform;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .box, .bottom-button {
+      --tx: 0px;
+      --ty: 0px;
+      font-family: 'Jersey 15', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: transform 0.15s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+      will-change: transform;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: #1a1233;
+      color: #e6d9ff;
+      border: 2px solid #b58cff;
+      box-shadow: 0 0 12px rgba(181,140,255,0.6), inset 0 0 8px rgba(181,140,255,0.25);
+      border-radius: 10px;
+      font-size: 17px;
+      line-height: 1.1;
+      transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--scale, 1));
+    }
+
+    .box:hover {
+      background-color: #3b1f66;
+      color: #ffffff;
+      --scale: 1.1;
+      box-shadow: 0 0 22px rgba(181,140,255,0.9), inset 0 0 10px rgba(181,140,255,0.35);
+    }
+
+    .bottom-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 16px;
+      color: #e6d9ff;
+      background-color: #1a1233;
+      border: 2px solid #b58cff;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(181,140,255,0.6);
+      transform: translate(var(--tx, 0px), var(--ty, 0px)) scale(var(--scale,1));
+    }
+
+    .bottom-button:hover {
+      background-color: #3b1f66;
+      box-shadow: 0 0 22px rgba(181,140,255,0.9);
+      --scale: 1.05;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 12px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .footer a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">SCRZY</div>
+
+  <div class="container">
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=adopt+me+trading';">MM2</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=adopt+me+trading';">ADOPT ME</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=blade+ball+trading';">BLADE BALL</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=blox+fruits+trading';">BLOX FRUITS</div>
+    <div class="box" onclick="window.location.href='https://disboard.org/search?keyword=roblox+crosstrading';">CROSSTRADING</div>
+  </div>
+
+  <script>
+    const boxes = document.querySelectorAll('.box');
+    const bottomButton = document.querySelector('.bottom-button');
+    const title = document.querySelector('.title');
+
+    window.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      [...boxes, bottomButton].forEach(el => {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dx = (mouseX - cx) / 15;
+        const dy = (mouseY - cy) / 15;
+        el.style.setProperty('--tx', dx.toFixed(2) + 'px');
+        el.style.setProperty('--ty', dy.toFixed(2) + 'px');
+      });
+
+      if (title) {
+        const tr = title.getBoundingClientRect();
+        const tcx = tr.left + tr.width / 2;
+        const tcy = tr.top + tr.height / 2;
+        const tdx = (mouseX - tcx) / 25;
+        const tdy = (mouseY - tcy) / 25;
+        title.style.setProperty('--ttx', tdx.toFixed(2) + 'px');
+        title.style.setProperty('--tty', tdy.toFixed(2) + 'px');
+      }
+    });
+
+    window.addEventListener('mouseleave', () => {
+      [...boxes, bottomButton].forEach(el => {
+        el.style.setProperty('--tx','0px');
+        el.style.setProperty('--ty','0px');
+      });
+      if (title) {
+        title.style.setProperty('--ttx','0px');
+        title.style.setProperty('--tty','0px');
+      }
+    });
+  </script>
+</body>
+</html>
